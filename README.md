@@ -48,3 +48,10 @@ Inception project. Learning Docker.
 | [SavchenkoDV](https://github.com/SavchenkoDV/inception_School21_Ecole42)  | `GitHub`  |`SavchenkoDV` |
 | [iimyzf](https://github.com/iimyzf/Inception)                             | `GitHub`  |`iimyzf` |
 | [42-inception](https://github.com/waltergcc/42-inception)                 | `GitHub`  |`waltergcc` |
+
+
+
+## Additinal info:
+
+https://www.youtube.com/watch?v=a1M_thDTqmU
+https://www.youtube.com/watch?v=rIrNIzy6U_g
