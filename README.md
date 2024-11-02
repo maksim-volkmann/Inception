@@ -56,3 +56,6 @@ Inception project. Learning Docker.
 https://www.youtube.com/watch?v=a1M_thDTqmU
 
 https://www.youtube.com/watch?v=rIrNIzy6U_g
+
+
+Best Practices for writing DockerFile: https://medium.com/@aditya_misra5/dockerfile-best-practices-1de436c966a5
