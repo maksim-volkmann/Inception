@@ -59,3 +59,6 @@ https://www.youtube.com/watch?v=rIrNIzy6U_g
 
 
 Best Practices for writing DockerFile: https://medium.com/@aditya_misra5/dockerfile-best-practices-1de436c966a5
+
+
+Set size to 30GB. 12GB is not enough.
