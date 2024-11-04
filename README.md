@@ -62,3 +62,102 @@ Best Practices for writing DockerFile: https://medium.com/@aditya_misra5/dockerf
 Also video: https://www.youtube.com/watch?v=gAkwW2tuIqE
 
 Set size to 30GB. 12GB is not enough.
+
+--------
+
+**Protocol** - a set of rules that client and a server have to follow.
+
+**HTTP** (_HyperText Transfer Protocol_) - is a specific set of rules that a client and server must follow to communicate over the web. HTTP operates on a request-response model. For example, a client sends a GET request to the server to request a resource (like a webpage). The server then responds with the requested content, along with a status code to indicate the result (e.g., 200 for success).
+
+When you type a URL into a web browser, the browser (client) sends an HTTP GET request to the server, asking for the content of the website you are trying to access. The server processes this request and responds by sending the website content back to the browser, which then displays it for you.
+
+When the client (browser) sends an HTTP GET request, it includes several pieces of information to help the server understand what it needs. The HTTP version specifies the protocol version used, ensuring both client and server are on the same page for handling the request. The Host tells the server the specific website being requested, which is important when multiple websites are hosted on the same server. The User-Agent identifies the browser or device making the request, allowing the server to adapt content if necessary, and the Accept-Language indicates the client’s preferred language for the content, so the server can respond in the most suitable language if it has options available
+
+**GET Request:**
+```
+GET /index.html HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+Accept-Language: en-US
+```
+
+**HTTP Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1256
+
+<html>
+    <head><title>Example</title></head>
+    <body><h1>Welcome to Example.com!</h1></body>
+</html>
+```
+
+# Simplified Explanation of RSA Encryption
+
+**RSA** is an encryption method that uses two keys: a **public key** for encryption (locking the message) and a **private key** for decryption (unlocking the message). Let’s walk through a basic example to see how it works.
+
+In real RSA encryption, we use very large prime numbers with hundreds of digits. But for simplicity, we’ll use small prime numbers to make the math easier to follow.
+
+## Step-by-Step Guide to RSA
+
+### Step 1: Choose Two Prime Numbers
+
+1. Pick two prime numbers. Let’s use: p = 71 q = 73
+
+
+### Step 2: Calculate `n`
+
+2. Multiply `p` and `q` to get `n`. This number `n` is part of both the public and private keys. n = p * q | n = 71 * 73 | n = 5183
+
+
+### Step 3: Calculate the Totient `φ(n)`
+
+3. Calculate `φ(n)` (also called the "totient"). This is done by: φ(n) = (p - 1) * (q - 1) φ(n) = (71 - 1) * (73 - 1) = 70 * 72 = 5040
+
+
+### Step 4: Choose a Public Key Exponent `e`
+
+4. Choose a small number `e` that is **coprime** with `φ(n)` (meaning `e` and `φ(n)` have no common divisors other than 1). We’ll use: e = 3
+
+
+The pair `(e, n)` becomes our **public key**.
+
+### Step 5: Calculate the Private Key `d`
+
+5. Find `d`, which is the **modular inverse** of `e` modulo `φ(n)`. In simpler terms, `d` is a number that, when multiplied by `e`, gives a remainder of 1 when divided by `φ(n)`: d * e ≡ 1 (mod φ(n))
+
+
+For this example, `d = 3363` works because: 3363 * 3 ≡ 1 (mod 5040)
+
+
+
+The pair `(d, n)` is our **private key**.
+
+## Example: Encrypting and Decrypting a Message
+
+Suppose we want to **encrypt a message** `m = 100` using our public key `(e, n)`.
+
+### Encrypting the Message
+
+To encrypt `m` using the public key `(e, n)`, calculate `c` as: c = (m^e) % n c = (100^3) % 5183 c = 1000000 % 5183 = 2064
+
+
+So, the **encrypted message** `c` is **2064**.
+
+### Decrypting the Message
+
+To decrypt `c` back to the original message `m` using the private key `(d, n)`, calculate `m` as: m = (c^d) % n m = (2064^3363) % 5183 m = 100
+
+
+After decrypting, we get back the original message, `m = 100`.
+
+## Summary
+
+- The **public key** `(e, n)` is used to encrypt messages.
+- The **private key** `(d, n)` is used to decrypt messages.
+- RSA relies on the difficulty of factoring large numbers, which makes it secure for encryption.
+
+This simplified example shows how RSA encryption and decryption work. In practice, we use much larger prime numbers for strong security.
+
+
